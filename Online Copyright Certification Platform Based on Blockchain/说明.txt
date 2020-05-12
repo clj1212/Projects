@@ -1,5 +1,0 @@
-需改
-将图片详情显示在
-saledetails.php
-saledetails.html内
-主要显示图片作者，区块链认证地址、图片名称和信息
