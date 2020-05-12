@@ -3,7 +3,7 @@
 """
 Created on Thu Nov  8 21:01:25 2018
 
-@author: zhengmeihua
+@author: cuilinjing
 """
 
 from selenium import webdriver
