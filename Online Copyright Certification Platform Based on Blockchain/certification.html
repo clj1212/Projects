@@ -1,0 +1,305 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Blockchain Picture Copyright | Login :: w3layouts</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.0.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' media="all" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Google Fonts -->
+<link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/sticky-navigation.css" />
+<link href="css/demo.css" rel="stylesheet" type="text/css" />
+<script>
+$(function() {
+
+	// grab the initial top offset of the navigation 
+	var sticky_navigation_offset_top = $('#sticky_navigation').offset().top;
+	
+	// our function that decides weather the navigation bar should have "fixed" css position or not.
+	var sticky_navigation = function(){
+		var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+		
+		// if we've scrolled more than the navigation, change its position to fixed to stick to top, otherwise change it back to relative
+		if (scroll_top > sticky_navigation_offset_top) { 
+			$('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 });
+		} else {
+			$('#sticky_navigation').css({ 'position': 'relative' }); 
+		}   
+	};
+	
+	// run our function on load
+	sticky_navigation();
+	
+	// and run it again every time you scroll
+	$(window).scroll(function() {
+		 sticky_navigation();
+	});
+	
+	// NOT required:
+	// for this demo disable all links that point to "#"
+	$('a[href="#"]').click(function(event){ 
+		event.preventDefault(); 
+	});
+	
+});
+</script>
+</head>
+<body>
+	<!-- Header Part Starts Here -->
+<div class="header">
+	<div class="container">
+	<div id="demo_top_wrapper">
+	<div id="sticky_navigation_wrapper">
+		<div id="sticky_navigation">
+			<div class="demo_container navigation-bar">
+				<div class="navigation">
+					<div class="logo"><a href="personal.php">个人中心</a></div>
+					<span class="menu"></span>
+					<script>
+						$( "span.menu" ).click(function() {
+						  $( ".navig" ).slideToggle( "slow", function() {
+						    // Animation complete.
+						  });
+						});
+					</script>
+					<div class="navig">
+						<ul>
+						<ul>
+							<li><a href="certdisplay.php">已认证作品</a></li>
+							<li><a href="tradable.php">可交易作品</a></li>
+							<li><a href="certification.html">认证新作品</a></li>
+							<li><a href="men.html">交易商城</a></li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="navigation-right">
+					<ul class="user">
+						<li>
+							<span></span><a href="reset_regist.php">退出登录</a>
+						</li>
+						<li>
+							<span class="bascket"></span><a href="bascket.html">购物车</a>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="container">
+<section id="main">
+	<div class="content">
+		<div class="pag-nav">
+			<ul class="p-list">
+				<li><a href="personal.php">个人主页</a></li> &nbsp;&nbsp;/&nbsp;
+				<li class="act">&nbsp;认证作品</li>
+			</ul>
+		</div>
+		<div class="coats">
+			<h3 class="c-head">认证作品</h3>
+			<p>在此上传您的图片作品，获得区块链认证的版权证书</p>
+		</div>
+		<div class="contact-box">
+		<form action="certification.php" method="post" onsubmit="return check();" enctype="multipart/form-data">
+			<div class="form">
+				<small>上传作品</small>
+				<div class="text">
+					<input type="file" name="file0" id="file0" multiple="multiple" 
+					accept="image/png,image/jpg,image/jpeg,image/gif,image/bmp"
+					placeholder="上传图片(png,jpg,jpeg,gif,bmp)" /><br>  		
+					<img src="" id="img0" style="width: 20rem;height: 15rem;"> 
+					<script>   
+						$("#file0").change(function(){  		 
+						var objUrl = getObjectURL(this.files[0]) ;//获取文件信息  		 
+						console.log("objUrl = "+objUrl);  		  
+						if (objUrl) {  		  
+						$("#img0").attr("src", objUrl);  		 
+						}
+						   }) ;  
+						function getObjectURL(file) {  		 
+						var url = null;   		 
+						if (window.createObjectURL!=undefined) {  		  
+						url = window.createObjectURL(file) ;  		 
+						} 
+						else if (window.URL!=undefined) { // mozilla(firefox)  		  
+						url = window.URL.createObjectURL(file) ;  		 
+						} 
+						else if (window.webkitURL!=undefined) { // webkit or chrome  		  
+						url = window.webkitURL.createObjectURL(file) ;  		 }  		 
+						return url ;  		}  		
+					</script>
+				</div>
+			</div>
+			<div class="form-t">
+				<small>主题</small>
+				<div class="text">
+					<Select name="style" id="style">
+						<option value=""> </option>
+						<option value="s1">风景</option>
+						<option value="s2">人物</option>
+						<option value="s3">动漫</option>
+						<option value="s4">设计</option>
+						<option value="s5">其他</option>
+					</Select> 
+				</div>
+			</div>
+			<div class="form-y">
+				<small>作品名称</small>
+				<div class="text">
+					<input type="text" name="picname" id="pw1" maxlength="20" placeholder="20字以内" onkeyup="vali()"/><span id="tis"></span>
+				</div>
+				<script>
+			 	function vali() {
+				var pw1 = document.getElementById("pw1").value;
+				if(pw1.length>0){
+				if(pw1.length<21) {
+				document.getElementById("tis").innerHTML="<font color='green'>名称合格</font>";
+				}
+				else {
+				document.getElementById("tis").innerHTML="<font color='red'>请输入20字以内</font>";
+				}
+				}
+				else{
+				document.getElementById("tis").innerHTML="<font color='red'>请输入作品名称</font>";
+				}
+				}
+				</script>
+			</div>
+			<div class="clearfix"></div>
+			<div class="form">
+					<small>作品简介</small>
+				<div class="text">
+					<textarea name="description" id="description" class="easyui-validatebox" 
+					onKeyUp="if(this.value.length>2000) this.value=this.value.substr(0,1000)" 
+					maxlength="1000"></textarea>
+					<font color="#C0C0C0">限输入1000个汉字包括标点</font>
+				</div>
+			</div>
+			<div class="text">
+				<input type="submit" value="send"/>
+			</div>
+		</form>
+		<script type="text/javascript">
+            function check() {
+                if(document.getElementById("file0").value==""){
+                    alert("你没有选择文件");
+                    return false;
+                }
+                if(document.getElementById("pw1").value==""){
+                    alert("请输入图片名称");
+                    return false;
+                }
+				if(document.getElementById("style").value==""){
+                    alert("请选择图片分类");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+		</div>
+		<div class="look">
+						<h3>You May Also Like</h3>
+					</div>
+					<!-- Partners Starts Here --->
+					<div class="partner">
+							<ul id="flexiselDemo3">
+							   <li><img src="images/ss1.jpg" class="img-responsive" alt=""/></li>
+							   <li><img src="images/ss2.jpg" class="img-responsive" alt=""/></li>
+							   <li><img src="images/ss3.jpg" class="img-responsive" alt=""/></li>
+							   <li><img src="images/ss4.jpg" class="img-responsive" alt=""/></li>
+							   <li><img src="images/ss5.png" class="img-responsive" alt=""/></li>
+							</ul>
+							<script type="text/javascript">
+								$(window).load(function() {
+									$("#flexiselDemo3").flexisel({
+										visibleItems: 5,
+										animationSpeed: 1000,
+										autoPlay: true,
+										autoPlaySpeed: 3000,    		
+										pauseOnHover: true,
+										enableResponsiveBreakpoints: true,
+								    	responsiveBreakpoints: { 
+								    		portrait: { 
+								    			changePoint:480,
+								    			visibleItems: 1
+								    		}, 
+								    		landscape: { 
+								    			changePoint:640,
+								    			visibleItems: 2
+								    		},
+								    		tablet: { 
+								    			changePoint:768,
+								    			visibleItems: 3
+								    		}
+								    	}
+								    });
+								    
+								});
+						 </script>
+				         <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+					</div>
+					<!-- Partners Ends Here --->
+							<!-- Footer Menu Starts here --->
+		<div class="footer">
+			<div class="row footer-row">
+				<div class="col-md-3 footer-col">
+					<h3 class="ft-title">已认证作品</h3>
+					<ul class="ft-list">
+						<li><a href="#">风景 (1725)</a></li>
+						<li><a href="#">人物 (635)</a></li>
+						<li><a href="#">动漫 (2514</a></li>
+						<li><a href="#">设计 (76)</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 footer-col">
+					<h3 class="ft-title">site</h3>
+					<ul class="ft-list  list-h">
+						<li><a href="#">Terms of Service </a></li>
+						<li><a href="#">Privacy Policy </a></li>
+						<li><a href="#">Copyright Policy </a></li>
+						<li><a href="#">Press Kit</a></li>
+						<li><a href="#">Support</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 footer-col">
+					<h3 class="ft-title">Shop</h3>
+					<ul class="ft-list list-h">
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Shipping Metods</a></li>
+						<li><a href="#">Career</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 foot-cl">
+					<h3 class="ft-title">social</h3>
+					<p>Shoper is made with love in Warsaw,<br>2014 &copy; More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+					<ul class="social">
+						<li><i class="fa"></i></li>
+						<li><i class="tw"></i></li>
+						<li><i class="is"></i></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- Footer Menu Ends here --->	
+	</div>
+</section>
+</body>
+</html>
